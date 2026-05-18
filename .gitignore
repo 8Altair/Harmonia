@@ -1,0 +1,63 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Flask instance/runtime
+instance/
+*.pid
+*.log
+logs/
+
+# IDE/editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build and packaging artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# NLP/model caches and artifacts
+.cache/
+cache/
+models/
+model/
+checkpoints/
+artifacts/
+weights/
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+
+# Audio/text processing outputs
+outputs/
+tmp/
+temp/
