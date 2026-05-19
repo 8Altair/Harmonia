@@ -1,4 +1,4 @@
-from Transcription.ASR_model import WhisperService, available_languages
+from Transcription.ASR_model import WhisperService
 
 from logging_configuration import live_transcription_logger
 
@@ -64,7 +64,7 @@ class LiveTranscriptor:
                     Raised if the transcription process fails.
         """
         live_transcription_logger.debug(f"Starting transcription.")
-        language_name = available_languages()[language].capitalize()
+        language_name = self.service.available_languages[language].capitalize()
         live_transcription_logger.info(f"Transcription language: {language_name}.")
         prompt = f"Transcribe the audio of human speech from {language_name} language." if not prompt else prompt
         live_transcription_logger.info(f"Transcription prompt: {prompt}")
