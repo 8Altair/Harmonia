@@ -98,6 +98,8 @@ class WhisperService:
         """
         asr_model_logger.debug("Initializing WhisperService.")
 
+        self.available_languages = available_languages()
+
         if model_name not in whisper_models():
             asr_model_logger.error(f"The {model_name} is not listed among Whisper models.")
             raise ValueError(f"Invalid Whisper model: {model_name}")
