@@ -26,7 +26,7 @@ class FilePipeline:
         if not speech_timestamps:
             return {"status": "rejected", "reason": "No voice detected."}
 
-        padding_seconds = 0.51
+        padding_seconds = 0.5
         start_sample = max(0, int((speech_timestamps[0]["start"] - padding_seconds) * self.vad.sampling_rate))
         end_sample = min(len(audio), int((speech_timestamps[-1]["end"] + padding_seconds) * self.vad.sampling_rate))
         absolute_speech_part = audio[start_sample:end_sample]
