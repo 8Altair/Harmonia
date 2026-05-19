@@ -6,7 +6,7 @@ from librosa.util import valid_audio
 from logging_configuration import  preprocessing_logger, language_decision_logger
 
 
-SAMPLING_RATE = 16000   # Sampling frequency preffered for NLP pipeline
+SAMPLING_RATE = 16000   # Sampling frequency preferred for NLP pipeline
 
 def standardize_audio(audio_input: str | np.ndarray, sampling_rate: int = SAMPLING_RATE) -> np.ndarray:
     """
