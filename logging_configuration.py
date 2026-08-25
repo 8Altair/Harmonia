@@ -3,7 +3,7 @@ import logging, colorlog
 from pathlib import Path
 
 
-def configure_logging(log_file_name: str, logger_name: str = None):
+def configure_logging(log_file_name: str, logger_name: str | None = None):
     """
         Configure a logger with console and file output.
         
