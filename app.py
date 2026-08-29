@@ -98,6 +98,11 @@ def frontend_config():
     return jsonify(get_frontend_configuration_payload())
 
 
+@app.route("/generated-audio/<path:file_name>", methods=["GET"])
+def generated_audio(file_name: str):
+    return send_from_directory(synthesis_output_directory, os.path.basename(file_name))
+
+
 def process_file():
     test_audio_path = r"C:\Users\dinoa\OneDrive - Univerza v Mariboru\Dokumenti\Sound Recordings\Test_2.flac"
 
