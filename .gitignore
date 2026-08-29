@@ -25,6 +25,7 @@ instance/
 *.pid
 *.log
 logs/
+Logs/
 
 # IDE/editor
 .idea/
@@ -39,6 +40,9 @@ Thumbs.db
 # Build and packaging artifacts
 build/
 dist/
+static/app/
+frontend/node_modules/
+frontend/.vite/
 *.egg-info/
 .eggs/
 pip-wheel-metadata/
