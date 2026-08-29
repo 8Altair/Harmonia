@@ -76,6 +76,19 @@ def get_frontend_configuration_payload() -> dict:
         }
 
 
+@app.route("/", methods=["GET"])
+def serve_frontend():
+    index_path = frontend_build_directory / "index.html"
+    if index_path.exists():
+        return send_from_directory(frontend_build_directory, "index.html")
+
+    return jsonify(
+        {
+            "status": "frontend_not_built",
+            "reason": "The React frontend has not been built yet. Run `npm install` and `npm run dev` inside `frontend`, or `npm run build` to serve it from Flask.",
+        }), 503
+
+
 def process_file():
     test_audio_path = r"C:\Users\dinoa\OneDrive - Univerza v Mariboru\Dokumenti\Sound Recordings\Test_2.flac"
 
