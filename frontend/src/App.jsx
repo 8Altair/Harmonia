@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 import HeaderBar from "./components/HeaderBar";
 import MicrophoneArtwork from "./components/MicrophoneArtwork";
+import PipelineWaveform from "./components/PipelineWaveform";
 import ResultsPanel from "./components/ResultsPanel";
 import Sidebar from "./components/Sidebar";
 import StageCircle from "./components/StageCircle";
@@ -499,6 +500,9 @@ function App() {
               controlLabel="Voice profile"
               badge={config.voice_label}
             />
+
+            <PipelineWaveform className="pipeline-waveform--start" />
+            <PipelineWaveform mirrored className="pipeline-waveform--end" />
           </div>
 
           <UploadPanel

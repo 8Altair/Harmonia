@@ -1,0 +1,44 @@
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.main-panel {
+  overflow-x: clip;
+}
+
+.hero-backdrop::before {
+  content: none;
+}
+
+.pipeline-row {
+  z-index: 2;
+  overflow: visible;
+}
+
+.pipeline-waveform {
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+  width: 104px;
+  height: 72px;
+  color: #2d7dff;
+  transform: translateY(-50%);
+  filter: drop-shadow(0 0 10px rgba(38, 112, 255, 0.8));
+  pointer-events: none;
+}
+
+.pipeline-waveform--start {
+  left: -42px;
+}
+
+.pipeline-waveform--end {
+  right: -42px;
+  color: #a451ff;
+}
+
+.pipeline-waveform--mirrored {
+  transform: translateY(-50%) scaleX(-1);
+}
