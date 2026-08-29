@@ -553,7 +553,7 @@
   display: grid;
   gap: 10px;
   width: min(92%, 920px);
-  margin: 0 auto;
+  margin: 19px auto 0;
 }
 
 .mode-switcher {
