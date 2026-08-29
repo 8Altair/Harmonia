@@ -10,6 +10,32 @@ import StatusPanel from "./components/StatusPanel";
 import UploadPanel from "./components/UploadPanel";
 import { fetchFrontendConfig, submitFileProcessing, submitLiveChunk } from "./services/api";
 
+const isFrontendPreview = import.meta.env.VITE_FRONTEND_ONLY === "true";
+const previewConfig = {
+  source_languages: [
+    { value: "Detect", label: "Detect automatically" },
+    { value: "English", label: "English" },
+    { value: "Spanish", label: "Spanish" },
+  ],
+  target_languages: [
+    { value: "English", label: "English" },
+    { value: "Spanish", label: "Spanish" },
+  ],
+  default_source_language: "Detect",
+  default_target_language: "English",
+  voice_label: "English voice",
+  live_chunk_duration_seconds: 3,
+};
+
+const defaultConfig = {
+  source_languages: [{ value: "Detect", label: "Detect automatically" }],
+  target_languages: [],
+  default_source_language: "Detect",
+  default_target_language: "",
+  voice_label: "English voice",
+  live_chunk_duration_seconds: 3,
+};
+
 function deriveAudioUrl(result) {
   if (!result) {
     return "";
@@ -137,14 +163,7 @@ function App() {
   const [theme, setTheme] = useState(() =>
     window.localStorage.getItem("harmonia-theme") === "light" ? "light" : "dark",
   );
-  const [config, setConfig] = useState({
-    source_languages: [{ value: "Detect", label: "Detect automatically" }],
-    target_languages: [],
-    default_source_language: "Detect",
-    default_target_language: "",
-    voice_label: "English voice",
-    live_chunk_duration_seconds: 3,
-  });
+  const [config, setConfig] = useState(isFrontendPreview ? previewConfig : defaultConfig);
   const [configError, setConfigError] = useState("");
   const [mode, setMode] = useState("file");
   const [selectedFile, setSelectedFile] = useState(null);
@@ -173,6 +192,10 @@ function App() {
   }, [theme]);
 
   useEffect(() => {
+    if (isFrontendPreview) {
+      return undefined;
+    }
+
     let ignore = false;
 
     async function loadConfig() {
