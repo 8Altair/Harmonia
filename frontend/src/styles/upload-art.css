@@ -1,0 +1,24 @@
+.upload-dropzone__icon--upload {
+  width: 78px;
+  height: 78px;
+  border-radius: 0;
+  background: transparent;
+  filter: drop-shadow(0 0 12px rgba(47, 111, 255, 0.58));
+}
+
+.upload-art {
+  width: 66px;
+  height: 66px;
+}
+
+@media (max-width: 1380px) and (min-width: 1181px) {
+  .upload-dropzone__icon--upload {
+    width: 52px;
+    height: 52px;
+  }
+
+  .upload-art {
+    width: 48px;
+    height: 48px;
+  }
+}

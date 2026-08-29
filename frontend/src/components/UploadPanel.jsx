@@ -1,5 +1,7 @@
-import { LoaderCircle, Mic, MicOff, UploadCloud } from "lucide-react";
+import { LoaderCircle, Mic, MicOff } from "lucide-react";
 import { useRef, useState } from "react";
+
+import UploadArtwork from "./UploadArtwork";
 
 function UploadPanel({
   mode,
@@ -70,8 +72,8 @@ function UploadPanel({
       >
         {mode === "file" ? (
           <>
-            <div className="upload-dropzone__icon" aria-hidden="true">
-              <UploadCloud size={28} />
+            <div className="upload-dropzone__icon upload-dropzone__icon--upload" aria-hidden="true">
+              <UploadArtwork />
             </div>
 
             <div className="upload-dropzone__copy">
