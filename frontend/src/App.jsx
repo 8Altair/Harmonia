@@ -1,4 +1,4 @@
-import { MoveRight, Volume2 } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import HeaderBar from "./components/HeaderBar";
@@ -6,6 +6,7 @@ import MicrophoneArtwork from "./components/MicrophoneArtwork";
 import PipelineWaveform from "./components/PipelineWaveform";
 import ResultsPanel from "./components/ResultsPanel";
 import Sidebar from "./components/Sidebar";
+import SpeechSynthesisArtwork from "./components/SpeechSynthesisArtwork";
 import StageCircle from "./components/StageCircle";
 import StatusPanel from "./components/StatusPanel";
 import UploadPanel from "./components/UploadPanel";
@@ -493,10 +494,10 @@ function App() {
 
             <StageCircle
               accent="violet"
-              icon={<Volume2 size={92} strokeWidth={1.8} />}
+              icon={<SpeechSynthesisArtwork className="stage-icon stage-icon--synthesis" />}
               index="3"
               title="Speech Synthesis"
-              description="Convert translated text to speech output"
+              description="Convert translated text to natural speech"
               controlLabel="Voice profile"
               badge={config.voice_label}
             />
