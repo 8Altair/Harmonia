@@ -1,0 +1,31 @@
+.brand-card {
+  position: relative;
+}
+
+.brand-card::after {
+  position: absolute;
+  top: calc(100% + 30px);
+  right: 6px;
+  left: 6px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(112, 137, 192, 0.24) 16%, rgba(112, 137, 192, 0.24) 84%, transparent);
+  content: "";
+  opacity: 0.82;
+}
+
+.header-bar {
+  min-height: 48px;
+  border: 0;
+  border-radius: 0;
+  padding: 0 6px;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  transform: translate(-8px, -6px);
+}
+
+@media (max-width: 1380px) and (min-width: 1181px) {
+  .header-bar {
+    transform: translate(-4px, -4px);
+  }
+}
