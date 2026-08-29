@@ -93,6 +93,11 @@ def serve_frontend_assets(file_name: str):
     return send_from_directory(frontend_build_directory / "assets", file_name)
 
 
+@app.route("/frontend-config", methods=["GET"])
+def frontend_config():
+    return jsonify(get_frontend_configuration_payload())
+
+
 def process_file():
     test_audio_path = r"C:\Users\dinoa\OneDrive - Univerza v Mariboru\Dokumenti\Sound Recordings\Test_2.flac"
 
