@@ -1,7 +1,8 @@
-import { AudioLines, Globe2, Languages, MicVocal, MoveRight, Volume2 } from "lucide-react";
+import { Globe2, Languages, MoveRight, Volume2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import HeaderBar from "./components/HeaderBar";
+import MicrophoneArtwork from "./components/MicrophoneArtwork";
 import ResultsPanel from "./components/ResultsPanel";
 import Sidebar from "./components/Sidebar";
 import StageCircle from "./components/StageCircle";
@@ -435,12 +436,7 @@ function App() {
           <div className="pipeline-row">
             <StageCircle
               accent="blue"
-              icon={
-                <span className="stage-icon stage-icon--transcription">
-                  <AudioLines className="stage-icon__waves" size={118} strokeWidth={1.8} />
-                  <MicVocal className="stage-icon__primary" size={82} strokeWidth={1.8} />
-                </span>
-              }
+              icon={<MicrophoneArtwork className="stage-icon stage-icon--transcription" />}
               index="1"
               title="Transcription"
               description="Convert speech to text"
