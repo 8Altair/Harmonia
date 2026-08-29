@@ -8,15 +8,15 @@ const stageIcons = {
 
 function StatusIcon({ phase }) {
   if (phase === "loading") {
-    return <LoaderCircle className="spin" size={18} />;
+    return <LoaderCircle className="spin" size={22} />;
   }
   if (phase === "success") {
-    return <CheckCircle2 size={18} />;
+    return <CheckCircle2 size={22} />;
   }
   if (phase === "rejected" || phase === "error") {
-    return <AlertTriangle size={18} />;
+    return <AlertTriangle size={22} />;
   }
-  return <CheckCircle2 size={18} />;
+  return <CheckCircle2 size={22} />;
 }
 
 function statusLabelForPhase(phase) {
@@ -69,7 +69,7 @@ function StatusPanel({ phase, sourceLanguage, targetLanguage, selectedFile, mess
               <div key={item.key} className="status-row">
                 <div className="status-row__meta">
                   <span className="status-row__icon">
-                    <Icon size={18} />
+                    <Icon size={24} />
                   </span>
                   <div>
                     <strong>{item.title}</strong>
@@ -93,7 +93,7 @@ function StatusPanel({ phase, sourceLanguage, targetLanguage, selectedFile, mess
 
         <div className="activity-row">
           <span className="activity-row__icon">
-            {mode === "file" ? <FileAudio size={20} /> : <Mic size={20} />}
+            {mode === "file" ? <FileAudio size={25} /> : <Mic size={25} />}
           </span>
           <div className="activity-row__copy">
             <strong>
