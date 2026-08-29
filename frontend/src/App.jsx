@@ -1,4 +1,4 @@
-import { Globe2, Languages, MoveRight, Volume2 } from "lucide-react";
+import { MoveRight, Volume2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import HeaderBar from "./components/HeaderBar";
@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import StageCircle from "./components/StageCircle";
 import StatusPanel from "./components/StatusPanel";
 import UploadPanel from "./components/UploadPanel";
+import TranslationArtwork from "./components/TranslationArtwork";
 import { fetchFrontendConfig, submitFileProcessing, submitLiveChunk } from "./services/api";
 
 const isFrontendPreview = import.meta.env.VITE_FRONTEND_ONLY === "true";
@@ -475,14 +476,7 @@ function App() {
 
             <StageCircle
               accent="cyan"
-              icon={
-                <span className="stage-icon stage-icon--translation">
-                  <Globe2 className="stage-icon__globe" size={88} strokeWidth={1.8} />
-                  <span className="stage-icon__language-badge">
-                    <Languages size={34} strokeWidth={1.8} />
-                  </span>
-                </span>
-              }
+              icon={<TranslationArtwork className="stage-icon stage-icon--translation" />}
               index="2"
               title="Translation"
               description="Translate text to the selected target language"
