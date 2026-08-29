@@ -114,5 +114,41 @@ def process_test_file():
     return jsonify(result)
 
 
+@app.route("/process-file", methods=["POST"])
+def process_uploaded_file():
+    audio_file = request.files.get("audio_file")
+    source_language = request.form.get("source_language", "Detect")
+    target_language = request.form.get("target_language", "en")
+
+    if audio_file is None:
+        return jsonify({"status": "error", "reason": "No audio file provided."}), 400
+
+    _, extension = os.path.splitext(audio_file.filename or "")
+    if not extension:
+        extension = ".wav"
+    with tempfile.NamedTemporaryFile(delete=False, suffix=extension) as temporary:
+        audio_file.save(temporary.name)
+        file_path = temporary.name
+
+    try:
+        result = pipeline.process_file(
+            audio_file_path=file_path,
+            audio_language=source_language,
+            chosen_target_language=target_language,)
+        if result.get("synthesized_audio_path"):
+            result["synthesized_audio_url"] = f"/generated-audio/{Path(result['synthesized_audio_path']).name}"
+    except Exception:
+        return jsonify(
+            {
+                "status": "error",
+                "reason": "The backend failed while processing the uploaded file.",
+            }), 500
+    finally:
+        if os.path.exists(file_path):
+            os.remove(file_path)
+
+    return jsonify(result)
+
+
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
