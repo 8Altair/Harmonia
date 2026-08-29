@@ -50,7 +50,7 @@ function statusMessageForPhase(phase, result, mode, isRecording, statusReason) {
   if (phase === "error") {
     return result?.reason || "The request failed before a valid result was returned.";
   }
-  return "Ready to submit a file to the backend.";
+  return "Ready to submit a file for processing";
 }
 
 function createSessionId() {
