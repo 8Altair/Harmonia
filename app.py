@@ -150,5 +150,53 @@ def process_uploaded_file():
     return jsonify(result)
 
 
+@app.route("/process-live-speech", methods=["POST"])
+def process_live_speech():
+    audio_chunk = request.files.get("audio_chunk")
+    session_id = request.form.get("session_id", "").strip()
+    source_language = request.form.get("source_language", "Detect")
+    target_language = request.form.get("target_language", "en")
+    finalize = request.form.get("finalize", "false").lower() == "true"
+    sampling_rate = int(request.form.get("sampling_rate", "16000"))
+
+    if not session_id:
+        return jsonify({"status": "error", "reason": "No live session identifier was provided."}), 400
+
+    if audio_chunk is None and not finalize:
+        return jsonify({"status": "error", "reason": "No live audio chunk was provided."}), 400
+
+    file_path = None
+    if audio_chunk is not None:
+        _, extension = os.path.splitext(audio_chunk.filename or "")
+        if not extension:
+            extension = ".webm"
+
+        with tempfile.NamedTemporaryFile(delete=False, suffix=extension) as temporary:
+            audio_chunk.save(temporary.name)
+            file_path = temporary.name
+
+    try:
+        result = pipeline.process_live_speech(
+            session_id=session_id,
+            audio_chunk=file_path,
+            sampling_rate=sampling_rate,
+            audio_language=source_language,
+            chosen_target_language=target_language,
+            finalize=finalize,)
+        if result.get("synthesized_audio_path"):
+            result["synthesized_audio_url"] = f"/generated-audio/{Path(result['synthesized_audio_path']).name}"
+    except Exception:
+        return jsonify(
+            {
+                "status": "error",
+                "reason": "The backend failed while processing the live speech chunk.",
+            }), 500
+    finally:
+        if file_path and os.path.exists(file_path):
+            os.remove(file_path)
+
+    return jsonify(result)
+
+
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False)
