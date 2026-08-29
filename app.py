@@ -1,13 +1,20 @@
 import tempfile, os
 
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request, send_file, send_from_directory
 
-from pipeline import FilePipeline
+from pathlib import Path
+from functools import lru_cache
+
+from pipeline import Pipeline
 
 
-pipeline = FilePipeline()
+app = Flask(__name__)   # Flask application instance
 
-app = Flask(__name__)
+project_root = Path(__file__).resolve().parent  # Get the absolute path of the current file, then its parent directory
+frontend_build_directory = project_root / "static" / "app"  # Define the path for the frontend build directory
+synthesis_output_directory = project_root / "Synthesis" / "Output"  # Define the path for the synthesized speech output
+
+pipeline = Pipeline()   # Create a pipeline instance
 
 @app.route("/process-file", methods=["GET"])
 def process_file():
