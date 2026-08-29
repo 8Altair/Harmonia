@@ -103,10 +103,13 @@ def generated_audio(file_name: str):
     return send_from_directory(synthesis_output_directory, os.path.basename(file_name))
 
 
-def process_file():
+@app.route("/test-file", methods=["GET"])
+def process_test_file():
     test_audio_path = r"C:\Users\dinoa\OneDrive - Univerza v Mariboru\Dokumenti\Sound Recordings\Test_2.flac"
 
     result = pipeline.process_file(audio_file_path=test_audio_path)
+    if result.get("synthesized_audio_path"):
+        result["synthesized_audio_url"] = f"/generated-audio/{Path(result['synthesized_audio_path']).name}"
 
     return jsonify(result)
 
