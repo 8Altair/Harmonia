@@ -90,6 +90,11 @@ def serve_frontend():
 
 
 def process_file():
+@app.route("/assets/<path:file_name>", methods=["GET"])
+def serve_frontend_assets(file_name: str):
+    return send_from_directory(frontend_build_directory / "assets", file_name)
+
+
     test_audio_path = r"C:\Users\dinoa\OneDrive - Univerza v Mariboru\Dokumenti\Sound Recordings\Test_2.flac"
 
     result = pipeline.process_file(audio_file_path=test_audio_path)
