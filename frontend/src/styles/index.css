@@ -56,6 +56,15 @@ body,
   margin: 0;
 }
 
+@media (min-width: 1181px) {
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
 body {
   min-height: 100vh;
   min-height: 100dvh;
