@@ -16,7 +16,6 @@ synthesis_output_directory = project_root / "Synthesis" / "Output"  # Define the
 
 pipeline = Pipeline()   # Create a pipeline instance
 
-@app.route("/process-file", methods=["GET"])
 
 @lru_cache(maxsize=1)
 def get_frontend_configuration_payload() -> dict:
@@ -89,12 +88,12 @@ def serve_frontend():
         }), 503
 
 
-def process_file():
 @app.route("/assets/<path:file_name>", methods=["GET"])
 def serve_frontend_assets(file_name: str):
     return send_from_directory(frontend_build_directory / "assets", file_name)
 
 
+def process_file():
     test_audio_path = r"C:\Users\dinoa\OneDrive - Univerza v Mariboru\Dokumenti\Sound Recordings\Test_2.flac"
 
     result = pipeline.process_file(audio_file_path=test_audio_path)
