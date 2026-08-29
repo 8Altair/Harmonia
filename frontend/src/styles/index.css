@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: #f7f9ff;
+  background: #020711;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --page-background:
+    radial-gradient(circle at 19% 46%, rgba(26, 75, 185, 0.12), transparent 23%),
+    radial-gradient(circle at 76% 44%, rgba(93, 34, 170, 0.11), transparent 22%),
+    linear-gradient(135deg, #020711 0%, #030916 48%, #020712 100%);
+  --panel-background: rgba(4, 11, 23, 0.82);
+  --panel-background-solid: #050d1b;
+  --panel-border: rgba(100, 135, 196, 0.16);
+  --panel-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  --text-primary: #f7f9ff;
+  --text-secondary: rgba(207, 218, 244, 0.72);
+  --text-muted: rgba(179, 192, 223, 0.58);
+  --control-background: rgba(5, 13, 28, 0.88);
+  --soft-background: rgba(13, 24, 46, 0.68);
+  --blue: #2f7dff;
+  --cyan: #19d3ff;
+  --violet: #a957ff;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  color: #10182b;
+  background: #edf3ff;
+  --page-background:
+    radial-gradient(circle at 18% 32%, rgba(71, 123, 255, 0.16), transparent 26%),
+    radial-gradient(circle at 78% 34%, rgba(143, 79, 230, 0.13), transparent 24%),
+    linear-gradient(135deg, #f7faff 0%, #edf3ff 52%, #f7f4ff 100%);
+  --panel-background: rgba(255, 255, 255, 0.78);
+  --panel-background-solid: #ffffff;
+  --panel-border: rgba(58, 86, 142, 0.17);
+  --panel-shadow: 0 22px 56px rgba(38, 63, 112, 0.14);
+  --text-primary: #10182b;
+  --text-secondary: rgba(33, 48, 79, 0.72);
+  --text-muted: rgba(45, 62, 96, 0.56);
+  --control-background: rgba(246, 249, 255, 0.94);
+  --soft-background: rgba(226, 235, 253, 0.78);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: var(--page-background);
+  color: var(--text-primary);
+  transition: background 220ms ease, color 180ms ease;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(70, 112, 255, 0.42);
+  color: #ffffff;
+}
