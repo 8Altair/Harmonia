@@ -84,6 +84,10 @@ function statusMessageForPhase(phase, result, mode, isRecording, statusReason) {
   return "Ready to submit a file for processing";
 }
 
+function formatVoiceLabel(voiceLabel) {
+  return voiceLabel === "English voice" ? "English (GB) voice" : voiceLabel;
+}
+
 function createSessionId() {
   if (window.crypto?.randomUUID) {
     return window.crypto.randomUUID();
@@ -467,7 +471,6 @@ function App() {
               index="1"
               title="Transcription"
               description="Convert speech to text"
-              controlLabel="Source language"
               options={config.source_languages}
               value={sourceLanguage}
               onChange={setSourceLanguage}
@@ -483,7 +486,6 @@ function App() {
               index="2"
               title="Translation"
               description="Translate text to the selected target language"
-              controlLabel="Target language"
               options={config.target_languages}
               value={targetLanguage}
               onChange={setTargetLanguage}
@@ -499,8 +501,7 @@ function App() {
               index="3"
               title="Speech Synthesis"
               description="Convert translated text to natural speech"
-              controlLabel="Voice profile"
-              badge={config.voice_label}
+              badge={formatVoiceLabel(config.voice_label)}
             />
 
             <PipelineWaveform className="pipeline-waveform--start" />

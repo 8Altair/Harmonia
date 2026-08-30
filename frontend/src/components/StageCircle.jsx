@@ -4,7 +4,6 @@ function StageCircle({
   index,
   title,
   description,
-  controlLabel,
   options,
   value,
   onChange,
@@ -24,19 +23,17 @@ function StageCircle({
         </div>
 
         {options ? (
-          <label className="stage-circle__control">
-            <span>{controlLabel}</span>
-            <select value={value} onChange={(event) => onChange(event.target.value)}>
+          <div className="stage-circle__control">
+            <select aria-label={title} value={value} onChange={(event) => onChange(event.target.value)}>
               {options.map((option) => (
                 <option key={option.value} value={option.value}>
-                  {option.label}
+                  {option.value === "Detect" ? "Detect language" : option.label}
                 </option>
               ))}
             </select>
-          </label>
+          </div>
         ) : (
           <div className="stage-circle__badge">
-            <span>{controlLabel}</span>
             <strong>{badge}</strong>
           </div>
         )}
