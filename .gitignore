@@ -62,6 +62,7 @@ weights/
 *.safetensors
 
 # Audio/text processing outputs
+Synthesis/Output/
 outputs/
 tmp/
 temp/
