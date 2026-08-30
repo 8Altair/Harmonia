@@ -4,6 +4,7 @@ import App from "./App";
 import "./styles/index.css";
 import "./styles/app.css";
 import "./styles/header-layout.css";
+import "./styles/pipeline-connectors.css";
 import "./styles/pipeline-waveform.css";
 import "./styles/stage-circles.css";
 import "./styles/upload-art.css";

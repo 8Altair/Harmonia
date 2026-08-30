@@ -1,9 +1,9 @@
-import { MoveRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import HeaderBar from "./components/HeaderBar";
 import MicrophoneArtwork from "./components/MicrophoneArtwork";
 import PipelineWaveform from "./components/PipelineWaveform";
+import PipelineConnectorArtwork from "./components/PipelineConnectorArtwork";
 import ResultsPanel from "./components/ResultsPanel";
 import Sidebar from "./components/Sidebar";
 import SpeechSynthesisArtwork from "./components/SpeechSynthesisArtwork";
@@ -473,7 +473,7 @@ function App() {
             />
 
             <div className="pipeline-link" aria-hidden="true">
-              <MoveRight size={24} />
+              <PipelineConnectorArtwork />
             </div>
 
             <StageCircle
@@ -489,7 +489,7 @@ function App() {
             />
 
             <div className="pipeline-link pipeline-link--violet" aria-hidden="true">
-              <MoveRight size={24} />
+              <PipelineConnectorArtwork />
             </div>
 
             <StageCircle

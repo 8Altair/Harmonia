@@ -1,0 +1,27 @@
+.pipeline-link {
+  position: relative;
+  z-index: 4;
+  width: 28px;
+  height: 48px;
+  margin: 0 auto;
+  color: #7fbdff;
+}
+
+.pipeline-connector {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 92px;
+  height: 42px;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 8px rgba(68, 161, 255, 0.76));
+}
+
+.pipeline-link--violet {
+  --connector-panel: #1a0b38;
+  color: #d0a2ff;
+}
+
+.pipeline-link--violet .pipeline-connector {
+  filter: drop-shadow(0 0 8px rgba(153, 85, 255, 0.76));
+}
