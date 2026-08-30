@@ -4,7 +4,15 @@
   width: 28px;
   height: 48px;
   margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: #7fbdff;
+  box-shadow: none;
+}
+
+.pipeline-link::before {
+  content: none;
 }
 
 .pipeline-connector {
