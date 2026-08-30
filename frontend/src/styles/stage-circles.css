@@ -8,11 +8,27 @@
 }
 
 .stage-circle__index {
+  z-index: 6;
   width: 48px;
   height: 48px;
-  border-color: rgba(var(--stage-rgb), 0.92);
-  background: radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.22), transparent 28%), linear-gradient(180deg, rgba(var(--stage-rgb), 0.36), rgba(5, 13, 29, 0.96));
-  box-shadow: 0 0 25px rgba(var(--stage-rgb), 0.56), inset 0 0 16px rgba(var(--stage-rgb), 0.22);
+  border-color: rgba(var(--stage-rgb), 0.96);
+  background:
+    radial-gradient(circle at 34% 25%, rgba(255, 255, 255, 0.28), transparent 28%),
+    linear-gradient(145deg, rgba(var(--stage-rgb), 0.42), rgba(5, 13, 29, 0.98) 72%);
+  color: #f6f9ff;
+  font-size: 1.38rem;
+  font-weight: 500;
+  text-shadow: 0 0 9px rgba(255, 255, 255, 0.62);
+  box-shadow:
+    0 0 0 2px rgba(5, 13, 29, 0.92),
+    0 0 18px rgba(var(--stage-rgb), 0.78),
+    inset 0 0 15px rgba(var(--stage-rgb), 0.24),
+    inset 0 -8px 13px rgba(0, 0, 0, 0.32);
+}
+
+:root[data-theme="light"] .stage-circle__index {
+  color: rgb(var(--stage-rgb));
+  text-shadow: none;
 }
 
 .stage-circle__surface {
@@ -20,13 +36,14 @@
   width: var(--stage-size);
   height: var(--stage-size);
   aspect-ratio: auto;
-  border: 1px solid rgba(var(--stage-rgb), 0.92);
+  border: 1px solid transparent;
   border-radius: 50%;
   background:
-    radial-gradient(circle at 31% 18%, rgba(255, 255, 255, 0.26), transparent 16%),
-    radial-gradient(circle at 50% 66%, rgba(var(--stage-rgb), 0.19), transparent 50%),
-    radial-gradient(circle at 28% 18%, rgba(var(--stage-rgb), 0.24), transparent 30%),
-    linear-gradient(145deg, rgba(31, 48, 88, 0.9), rgba(4, 10, 24, 0.97) 56%, rgba(var(--stage-rgb), 0.16));
+    radial-gradient(circle at 31% 18%, rgba(255, 255, 255, 0.26), transparent 16%) padding-box,
+    radial-gradient(circle at 50% 66%, rgba(var(--stage-rgb), 0.19), transparent 50%) padding-box,
+    radial-gradient(circle at 28% 18%, rgba(var(--stage-rgb), 0.24), transparent 30%) padding-box,
+    linear-gradient(145deg, rgba(31, 48, 88, 0.9), rgba(4, 10, 24, 0.97) 56%, rgba(var(--stage-rgb), 0.16)) padding-box,
+    conic-gradient(from 215deg, transparent 0deg 96deg, rgba(var(--stage-rgb), 0.46) 111deg, rgba(255, 255, 255, 0.82) 128deg, rgba(255, 255, 255, 0.22) 151deg, rgba(var(--stage-rgb), 0.62) 170deg, transparent 196deg 360deg) border-box;
   box-shadow:
     inset 0 0 0 7px rgba(255, 255, 255, 0.035),
     inset 0 0 0 11px rgba(var(--stage-rgb), 0.09),
