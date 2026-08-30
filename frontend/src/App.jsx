@@ -2,15 +2,16 @@ import { useEffect, useRef, useState } from "react";
 
 import HeaderBar from "./components/HeaderBar";
 import MicrophoneArtwork from "./components/MicrophoneArtwork";
-import PipelineWaveform from "./components/PipelineWaveform";
 import PipelineConnectorArtwork from "./components/PipelineConnectorArtwork";
+import PipelineWaveform from "./components/PipelineWaveform";
+import { PipelineIcon } from "./components/PipelineVisuals";
 import ResultsPanel from "./components/ResultsPanel";
 import Sidebar from "./components/Sidebar";
 import SpeechSynthesisArtwork from "./components/SpeechSynthesisArtwork";
 import StageCircle from "./components/StageCircle";
 import StatusPanel from "./components/StatusPanel";
-import UploadPanel from "./components/UploadPanel";
 import TranslationArtwork from "./components/TranslationArtwork";
+import UploadPanel from "./components/UploadPanel";
 import { fetchFrontendConfig, submitFileProcessing, submitLiveChunk } from "./services/api";
 
 const isFrontendPreview = import.meta.env.VITE_FRONTEND_ONLY === "true";
@@ -462,7 +463,7 @@ function App() {
           <div className="pipeline-row">
             <StageCircle
               accent="blue"
-              icon={<MicrophoneArtwork className="stage-icon stage-icon--transcription" />}
+              icon={<MicrophoneArtwork className="stage-icon pipeline-art pipeline-art--transcription" />}
               index="1"
               title="Transcription"
               description="Convert speech to text"
@@ -478,7 +479,7 @@ function App() {
 
             <StageCircle
               accent="cyan"
-              icon={<TranslationArtwork className="stage-icon stage-icon--translation" />}
+              icon={<TranslationArtwork className="stage-icon pipeline-art pipeline-art--translation" />}
               index="2"
               title="Translation"
               description="Translate text to the selected target language"
@@ -494,7 +495,7 @@ function App() {
 
             <StageCircle
               accent="violet"
-              icon={<SpeechSynthesisArtwork className="stage-icon stage-icon--synthesis" />}
+              icon={<SpeechSynthesisArtwork className="stage-icon pipeline-art pipeline-art--synthesis" />}
               index="3"
               title="Speech Synthesis"
               description="Convert translated text to natural speech"

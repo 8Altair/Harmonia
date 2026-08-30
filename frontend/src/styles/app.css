@@ -229,7 +229,7 @@
 .hero-heading {
   position: relative;
   z-index: 2;
-  margin: 0 auto;
+  margin: -19px auto 0;
   text-align: center;
 }
 
@@ -431,42 +431,6 @@
   min-height: clamp(70px, 9vh, 92px);
   color: rgb(var(--stage-rgb));
   filter: drop-shadow(0 0 14px rgba(var(--stage-rgb), 0.7));
-}
-
-.stage-icon {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 118px;
-  height: 94px;
-}
-
-.stage-icon__waves,
-.stage-icon__primary,
-.stage-icon__globe,
-.stage-icon__language-badge {
-  position: absolute;
-}
-
-.stage-icon__waves {
-  opacity: 0.82;
-}
-
-.stage-icon__primary {
-  filter: drop-shadow(0 0 9px rgba(var(--stage-rgb), 0.72));
-}
-
-.stage-icon__language-badge {
-  right: 2px;
-  bottom: 0;
-  display: grid;
-  place-items: center;
-  width: 45px;
-  height: 39px;
-  border: 2px solid currentColor;
-  border-radius: 5px;
-  background: #071426;
-  box-shadow: 0 0 15px rgba(var(--stage-rgb), 0.38);
 }
 
 .stage-circle__copy {
@@ -871,9 +835,41 @@
   place-items: center;
   width: 38px;
   height: 38px;
-  border-radius: 12px;
-  background: rgba(49, 76, 155, 0.22);
+  border: 1px solid rgba(75, 133, 255, 0.23);
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 28%, rgba(79, 129, 255, 0.28), rgba(17, 33, 73, 0.46));
   color: #8cb4ff;
+  line-height: 0;
+}
+
+.status-row__icon .pipeline-art {
+  width: 23px;
+  height: 23px;
+  --art-panel: #0b1c42;
+}
+
+.status-row__icon--translation {
+  border-color: rgba(45, 207, 255, 0.24);
+  background: radial-gradient(circle at 35% 28%, rgba(37, 201, 255, 0.24), rgba(9, 43, 65, 0.46));
+  color: #60dfff;
+}
+
+.status-row__icon--synthesis {
+  border-color: rgba(181, 97, 255, 0.26);
+  background: radial-gradient(circle at 35% 28%, rgba(175, 92, 255, 0.24), rgba(46, 19, 77, 0.46));
+  color: #bd7cff;
+}
+
+.status-row .status-row__icon--transcription {
+  color: #5283ff;
+}
+
+.status-row .status-row__icon--translation {
+  color: #33d6ff;
+}
+
+.status-row .status-row__icon--synthesis {
+  color: #b169ff;
 }
 
 .status-row__meta strong,
@@ -881,7 +877,7 @@
   font-size: 0.82rem;
 }
 
-.status-row__meta span {
+.status-row__meta > div > span {
   display: block;
   margin-top: 2px;
   font-size: 0.72rem;

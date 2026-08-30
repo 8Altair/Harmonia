@@ -1,10 +1,6 @@
-import { AlertTriangle, CheckCircle2, FileAudio, Languages, LoaderCircle, Mic, Volume2 } from "lucide-react";
+import { AlertTriangle, CheckCircle2, FileAudio, LoaderCircle, Mic } from "lucide-react";
 
-const stageIcons = {
-  transcription: Mic,
-  translation: Languages,
-  synthesis: Volume2,
-};
+import { PipelineIcon } from "./PipelineVisuals";
 
 function StatusIcon({ phase }) {
   if (phase === "loading") {
@@ -64,12 +60,11 @@ function StatusPanel({ phase, sourceLanguage, targetLanguage, selectedFile, mess
 
         <div className="status-list">
           {items.map((item) => {
-            const Icon = stageIcons[item.key];
             return (
               <div key={item.key} className="status-row">
                 <div className="status-row__meta">
-                  <span className="status-row__icon">
-                    <Icon size={18} />
+                  <span className={`status-row__icon status-row__icon--${item.key}`}>
+                    <PipelineIcon kind={item.key} />
                   </span>
                   <div>
                     <strong>{item.title}</strong>
