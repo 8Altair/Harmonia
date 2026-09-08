@@ -77,9 +77,9 @@ class VADSession:
             Reset the current live VAD session state.
 
             This method:
-            - Resets internal Silero VAD iterator state.
-            - Clears the accumulated speech buffer.
-            - Disables active speech collection state.
+                - Resets internal Silero VAD iterator state.
+                - Clears the accumulated speech buffer.
+                - Disables active speech collection state.
 
             Notes
             -----
