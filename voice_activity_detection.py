@@ -1,4 +1,4 @@
-from silero_vad import load_silero_vad, read_audio, get_speech_timestamps, VADIterator
+from silero_vad import load_silero_vad, get_speech_timestamps, VADIterator
 
 from logging_configuration import vad_logger
 
