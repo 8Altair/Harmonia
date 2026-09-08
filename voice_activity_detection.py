@@ -16,8 +16,8 @@ class VADSession:
         Manage file-based and streaming voice activity detection once per session.
 
         This class provides:
-        - File-level voice activity detection.
-        - Live-streaming voice activity detection.
+            - File-level voice activity detection.
+            - Live-streaming voice activity detection.
 
         Each session maintains its own:
         - VAD iterator.
