@@ -143,7 +143,7 @@ class VADSession:
         """
             Perform live voice activity detection on streaming audio chunks.
 
-            The method processes incoming audio data with the Silero VAD iterator
+            This method processes incoming audio data with the Silero VAD iterator
             and accumulates speech chunks until speech-end detection occurs.
 
             Parameters
