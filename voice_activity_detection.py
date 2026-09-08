@@ -20,9 +20,9 @@ class VADSession:
             - Live-streaming voice activity detection.
 
         Each session maintains its own:
-        - VAD iterator.
-        - Speech accumulation buffer.
-        - Speech collection state.
+            - VAD iterator.
+            - Speech accumulation buffer.
+            - Speech collection state.
 
         The session shares the globally loaded Silero VAD model.
 
