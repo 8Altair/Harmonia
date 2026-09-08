@@ -13,7 +13,7 @@ except Exception:
 
 class VADSession:
     """
-        Manage file-based and streaming voice activity detection for one a session.
+        Manage file-based and streaming voice activity detection once per session.
 
         This class provides:
         - File-level voice activity detection.
