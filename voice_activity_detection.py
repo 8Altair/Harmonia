@@ -84,9 +84,9 @@ class VADSession:
             Notes
             -----
             Call this method when:
-            - A live session ends.
-            - Microphone streaming stops.
-            - The current session must be reinitialized.
+                - A live session ends.
+                - Microphone streaming stops.
+                - The current session must be reinitialized.
         """
         vad_logger.debug("Resetting LiveVADSession.")
         try:
