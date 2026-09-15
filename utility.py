@@ -141,7 +141,7 @@ def silence_validation(audio: np.ndarray) -> bool:
     """
         Validate that audio energy exceeds the silence threshold.
 
-        The validation is based on the mean root mean square (RMS)
+        The validation is based on the mean root-mean-square (RMS)
         energy level of the audio signal.
 
         Parameters
@@ -168,7 +168,7 @@ def silence_validation(audio: np.ndarray) -> bool:
         raise
     preprocessing_logger.debug("Calculating the mean of all root mean square elements.")
     try:
-        mean_rms = float(np.mean(root_mean_square)) # Mean explicitely converted to float for uniform type usage
+        mean_rms = float(np.mean(root_mean_square)) # Mean explicitly converted to float for uniform type usage
     except Exception:
         preprocessing_logger.exception("Could not calculate mean of root mean square.")
         raise
@@ -195,13 +195,13 @@ def decider(probabilities: dict[str, float]) -> str | tuple[str, bool] | tuple[s
         medium_certainty = 0.7  # Custom threshold for a medium confidence level
         low_certainty = 0.55  # Custom threshold for a low confidence level
 
-        if first_item[1] > high_certainty:  # Logic for the highest probability above the high_certainty treshold; model is verys condfident that this is the best language candidate
+        if first_item[1] > high_certainty:  # Logic for the highest probability above the high_certainty threshold; model is very confident that this is the best language candidate
             detected_language = first_item[0]
         else:  # Other cases
             language_decision_logger.debug("Multiple languages detected.")
 
-            epsilon_low = 0.03  # Epsilon surrounding for the higher probabilities: higher probabilties are more meaningful and more likely to show if the highest probability is around the high_certainty
-            epsilon_medium = 0.05  # Epsilon surrounding for the medium probabilities: medium probabilties are still good, but less meaningful, and are a little bit harder to find if the highest probability is around the medium_certainty
+            epsilon_low = 0.03  # Epsilon surrounding for the higher probabilities: higher probabilities are more meaningful and more likely to show if the highest probability is around the high_certainty
+            epsilon_medium = 0.05  # Epsilon surrounding for the medium probabilities: medium probabilities are still good, but less meaningful, and are a little bit harder to find if the highest probability is around the medium_certainty
             epsilon_high = 0.1  # Epsilon surrounding for the lower probabilities: low probabilities are less meaningful, and are likely harder to find if the highest probability is around the low_certainty
 
             detected_language = [first_item[0]]  # First language is always returned
